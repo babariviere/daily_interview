@@ -12,7 +12,7 @@ defmodule DailyInterview.LongestSubstr do
   def longest_substr(s) when is_binary(s),
     do: longest_substr(String.graphemes(s), MapSet.new(), 0)
 
-  def longest_substr([c | str], set, length) do
+  defp longest_substr([c | str], set, length) do
     case MapSet.member?(set, c) do
       true ->
         longest_substr([c | str], MapSet.new(), 0)
@@ -23,5 +23,5 @@ defmodule DailyInterview.LongestSubstr do
     end
   end
 
-  def longest_substr([], _set, length), do: length
+  defp longest_substr([], _set, length), do: length
 end

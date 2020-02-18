@@ -17,16 +17,16 @@ defmodule DailyInterview.MatchPars do
   def valid_pars?(str) when is_binary(str), do: str |> String.graphemes() |> valid_pars?([])
 
   # Empty string and empty stack is a valid match.
-  def valid_pars?([], []), do: true
+  defp valid_pars?([], []), do: true
   # Else if stack not empty, there is a missing match.
-  def valid_pars?([], _), do: false
+  defp valid_pars?([], _), do: false
 
   # When open pars, push it to the stack.
-  def valid_pars?([head | str], stack) when head in @open_pars,
+  defp valid_pars?([head | str], stack) when head in @open_pars,
     do: valid_pars?(str, [head | stack])
 
   # When close pars, match it with open pars.
-  def valid_pars?([head | str], [open | stack]) when head in @close_pars do
+  defp valid_pars?([head | str], [open | stack]) when head in @close_pars do
     valid =
       Enum.find(@assoc_pars, fn assoc -> elem(assoc, 0) == open end)
       |> elem(1) == head
@@ -38,7 +38,7 @@ defmodule DailyInterview.MatchPars do
   end
 
   # When close pars and empty stack -> invalid.
-  def valid_pars?([head | _str], []) when head in @close_pars, do: false
+  defp valid_pars?([head | _str], []) when head in @close_pars, do: false
   # Else, ignore character
-  def valid_pars?([_head | str], stack), do: valid_pars?(str, stack)
+  defp valid_pars?([_head | str], stack), do: valid_pars?(str, stack)
 end
