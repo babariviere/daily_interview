@@ -1,21 +1,31 @@
 # DailyInterview
 
-**TODO: Add description**
+A set of exercises from [Daily Interview Pro](https://www.techseries.dev/daily)
+and resolved in Elixir.
+This repository only exists to keep a trace of my learning experience with Elixir.
 
-## Installation
+## Project Structure
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `daily_interview` to your list of dependencies in `mix.exs`:
+For now, it's a bit dirty. This section will be written when the code will be clean.
 
-```elixir
-def deps do
-  [
-    {:daily_interview, "~> 0.1.0"}
-  ]
-end
+## Usage
+
+You can build everything by running:
+
+```sh
+mix deps.get
+mix compile
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/daily_interview](https://hexdocs.pm/daily_interview).
+This creates no output because it's a library.
+But you can test if my functions works by running:
 
+```sh
+mix test
+```
+
+## TODO
+
+- [x] longest substring without repeating characters
+- [ ] palindrome
+- [ ] balanced parentheses
