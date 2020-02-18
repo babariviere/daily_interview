@@ -12,7 +12,7 @@ defmodule DailyInterview do
   def longest_substr(s) when is_binary(s), do: longest_substr(String.graphemes(s))
 
   def longest_substr(s) do
-    case unique_substr(s, MapSet.new()) do
+    case unique_substr(s) do
       {x, []} -> x
       {x, s} -> max(x, longest_substr(s))
     end
@@ -20,15 +20,16 @@ defmodule DailyInterview do
 
   # Return the length of the first unique substring.
   # Second return parameter is the rest of the string.
-  @spec unique_substr(str :: [binary], set :: MapSet) :: {integer, [binary]}
-  defp unique_substr([c | str], set) do
+  @spec unique_substr(str :: [binary], set :: MapSet, length :: integer) :: {integer, [binary]}
+  defp unique_substr(str, set \\ MapSet.new(), length \\ 0)
+
+  defp unique_substr([c | str], set, length) do
     if MapSet.member?(set, c) do
-      {0, [c | str]}
+      {length, [c | str]}
     else
-      {i, str} = unique_substr(str, MapSet.put(set, c))
-      {i + 1, str}
+      unique_substr(str, MapSet.put(set, c), length + 1)
     end
   end
 
-  defp unique_substr([], _), do: {0, []}
+  defp unique_substr([], _, length), do: {length, []}
 end
