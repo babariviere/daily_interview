@@ -1,5 +1,5 @@
 defmodule DailyInterviewTest do
-  import DailyInterview.{MatchParen, LongestString}
+  import DailyInterview.{MatchPars, LongestSubstr}
   use ExUnit.Case
   doctest DailyInterview
 
@@ -11,9 +11,9 @@ defmodule DailyInterviewTest do
   end
 
   test "matching parentheses" do
-    assert valid_paren?("()")
-    refute valid_paren?(")")
-    refute valid_paren?("(()")
-    assert valid_paren?("({[]}){[()]}")
+    assert valid_pars?("()")
+    refute valid_pars?(")")
+    refute valid_pars?("(()")
+    assert valid_pars?("({[]}){[()]}")
   end
 end

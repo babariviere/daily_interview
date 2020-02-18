@@ -1,4 +1,4 @@
-defmodule DailyInterview.LongestString do
+defmodule DailyInterview.LongestSubstr do
   @moduledoc """
   Implementation for searching the longest substring without repeating characters.
   """
