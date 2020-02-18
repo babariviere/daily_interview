@@ -14,7 +14,7 @@ defmodule DailyInterview.MatchPars do
 
   @doc "Validate parentheses matches in a string."
   @spec valid_pars?(String.t()) :: bool
-  def valid_pars?(str) when is_binary(str), do: valid_pars?(String.graphemes(str), [])
+  def valid_pars?(str) when is_binary(str), do: str |> String.graphemes() |> valid_pars?([])
 
   # Empty string and empty stack is a valid match.
   def valid_pars?([], []), do: true
@@ -39,7 +39,6 @@ defmodule DailyInterview.MatchPars do
 
   # When close pars and empty stack -> invalid.
   def valid_pars?([head | _str], []) when head in @close_pars, do: false
-
   # Else, ignore character
   def valid_pars?([_head | str], stack), do: valid_pars?(str, stack)
 end
