@@ -8,6 +8,7 @@ defmodule DailyInterviewTest do
     assert longest_substr("abrkaabcdefghijjxxx") == 10
     assert longest_substr("pwwkew") == 3
     assert longest_substr("abcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcba") == 26
+    assert longest_substr("bcaabcdeffedd") == 6
   end
 
   test "matching parentheses" do
