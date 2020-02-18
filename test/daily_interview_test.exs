@@ -1,5 +1,5 @@
 defmodule DailyInterviewTest do
-  import DailyInterview
+  import DailyInterview.{MatchParen, LongestString}
   use ExUnit.Case
   doctest DailyInterview
 
@@ -8,5 +8,12 @@ defmodule DailyInterviewTest do
     assert longest_substr("abrkaabcdefghijjxxx") == 10
     assert longest_substr("pwwkew") == 3
     assert longest_substr("abcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcba") == 26
+  end
+
+  test "matching parentheses" do
+    assert valid_paren?("()")
+    refute valid_paren?(")")
+    refute valid_paren?("(()")
+    assert valid_paren?("({[]}){[()]}")
   end
 end

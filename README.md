@@ -1,8 +1,8 @@
 # DailyInterview
 
 A set of exercises from [Daily Interview Pro](https://www.techseries.dev/daily)
-and resolved in Elixir.
-This repository only exists to keep a trace of my learning experience with Elixir.
+and resolved in Elixir. This repository only exists to keep a trace of my
+learning experience with Elixir.
 
 ## Project Structure
 
@@ -28,4 +28,4 @@ mix test
 
 - [x] longest substring without repeating characters
 - [ ] palindrome
-- [ ] balanced parentheses
+- [x] balanced parentheses
