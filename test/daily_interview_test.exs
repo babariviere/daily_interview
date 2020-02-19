@@ -1,5 +1,5 @@
 defmodule DailyInterviewTest do
-  import DailyInterview.{MatchPars, LongestSubstr}
+  import DailyInterview.{MatchPars, LongestSubstr, FalIndices}
   use ExUnit.Case
   doctest DailyInterview
 
@@ -16,5 +16,13 @@ defmodule DailyInterviewTest do
     refute valid_pars?(")")
     refute valid_pars?("(()")
     assert valid_pars?("({[]}){[()]}")
+  end
+
+  test "first and last indices of a target" do
+    assert get_indices([1, 1, 2, 3, 4, 5], 6) == {-1, -1}
+    assert get_indices([1, 1, 2, 3, 4, 5], 1) == {0, 1}
+    assert get_indices([1, 3, 3, 5, 7, 8, 9, 9, 9, 15], 9) == {6, 8}
+    assert get_indices([100, 150, 150, 153], 150) == {1, 2}
+    assert get_indices([1, 2, 3, 4, 5, 6, 10], 9) == {-1, -1}
   end
 end

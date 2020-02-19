@@ -29,3 +29,4 @@ mix test
 - [x] longest substring without repeating characters
 - [ ] palindrome
 - [x] balanced parentheses
+- [x] first and last indices
