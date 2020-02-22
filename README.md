@@ -30,3 +30,4 @@ mix test
 - [ ] palindrome
 - [x] balanced parentheses
 - [x] first and last indices
+- [x] reverse linked list
