@@ -15,8 +15,8 @@ defmodule DailyInterview.LinkedList do
   @doc """
   Create a new linked list.
   """
-  @spec new() :: t()
-  def new(), do: %LinkedList{}
+  @spec new :: t()
+  def new, do: %LinkedList{}
 
   @doc """
   Push a new element to the linked list.
@@ -24,10 +24,8 @@ defmodule DailyInterview.LinkedList do
 
   ## Example
 
-  ```elixir
-  LinkedList.new()
-  |> LinkedList.push(10)
-  ```
+        LinkedList.new()
+        |> LinkedList.push(10)
   """
   @spec push(t(), any()) :: t()
   def push(list, elem), do: %LinkedList{value: elem, next: list}
